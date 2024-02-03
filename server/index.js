@@ -29,13 +29,13 @@ async function doRequest(url) {
 
 app.get("/api", async (req, res) => {
     const playersUrl = new URL(
-        "https://app.matchplay.events/api/tournaments/128622?includePlayers=1"
+        `https://app.matchplay.events/api/tournaments/${variables.variables.tournamentId}?includePlayers=1`
     );
 
     let playersResp = await doRequest(playersUrl);
     
     const url = new URL(
-        "https://app.matchplay.events/api/tournaments/128622/standings"
+        `https://app.matchplay.events/api/tournaments/${variables.variables.tournamentId}/standings`
     );
 
     let resp = await doRequest(url);
