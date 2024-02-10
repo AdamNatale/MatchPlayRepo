@@ -51,7 +51,12 @@ app.get("/api", async (req, res) => {
         });
     });
 
-    res.json(standings);
+    const matchPlayData = {
+        status: playersResp.data.status,
+        standings
+    };
+
+    res.json(matchPlayData);
 });
 
 app.listen(PORT, () => {
