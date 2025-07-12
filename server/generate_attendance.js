@@ -38,6 +38,18 @@ async function generateAttendance() {
         {
             tournamentId: "199271",
             date: "2025-06-28"
+        },
+        {
+            tournamentId: "200199",
+            date: "2025-07-04"
+        },
+        {
+            tournamentId: "200332",
+            date: "2025-07-05"
+        },
+        {
+            tournamentId: "201250",
+            date: "2025-07-11"
         }
     ];
 
@@ -61,9 +73,10 @@ async function generateAttendance() {
 
         await playersResp.data.players.forEach((player) => {
             let obj = playerData.find(o => o.playerId === player.playerId);
+            let playerName = player.name.split(" ")[0] + " " + player.name.split(" ")[1][0] + ".";
             if (!obj) {
                 playerData.push({
-                    playerName: player.name,
+                    playerName,
                     playerId: player.playerId,
                     attendance: [tournament.tournamentId]
                 });
@@ -95,6 +108,14 @@ async function generateAttendance() {
         csvFileContent += `${player.attendance.length}\n`
     });
     console.log(csvFileContent);
+    console.log("FACEBOOK POST DATA");
+    playerData.forEach((player) => {
+        if (player.attendance.length > 5) {
+            console.log(`${player.playerName} - $${player.attendance.length}0 <--- FREE ADMISSION`);
+        } else {
+            console.log(`${player.playerName} - $${player.attendance.length}0`);
+        }
+    });
 
     fs.writeFile('attendance.csv', csvFileContent, err => {
         if (err) {
