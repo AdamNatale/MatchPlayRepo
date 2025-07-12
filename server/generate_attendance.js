@@ -111,7 +111,7 @@ async function generateAttendance() {
     console.log("FACEBOOK POST DATA");
     playerData.forEach((player) => {
         if (player.attendance.length > 5) {
-            console.log(`${player.playerName} - $${player.attendance.length}0 <--- FREE ADMISSION`);
+            console.log(`${player.playerName} <--- FREE ADMISSION`);
         } else {
             console.log(`${player.playerName} - $${player.attendance.length}0`);
         }
