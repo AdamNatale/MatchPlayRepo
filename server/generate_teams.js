@@ -41,12 +41,14 @@ async function buildTeams() {
     
     await eventsResp.data.forEach((event) => {
         console.log(event);
-        let obj = playersResp.data.players.find(o => o.playerId === event.data.playerIds[0]);
-        console.log(obj);
-        if (team1.length === team2.length) {
-            team1.push(obj.name);
-        } else {
-            team2.push(obj.name);
+        for (let i = 0; i < event.data.playerIds.length; i++) {
+            let obj = playersResp.data.players.find(o => o.playerId === event.data.playerIds[i]);
+            console.log(obj);
+            if (team1.length === team2.length) {
+                team1.push(obj.name);
+            } else {
+                team2.push(obj.name);
+            }
         }
     });
     
