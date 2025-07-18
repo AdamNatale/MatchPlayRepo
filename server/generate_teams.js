@@ -37,7 +37,7 @@ async function buildTeams() {
     let team1 = [];
     let team2 = [];
 
-    console.log(eventsResp);
+    // console.log(eventsResp);
     
     await eventsResp.data.forEach((event) => {
         console.log(event);
@@ -52,8 +52,8 @@ async function buildTeams() {
         }
     });
     
-    console.log(team1);
-    console.log(team2);
+    console.log(JSON.stringify(team1, null, " "));
+    console.log(JSON.stringify(team2, null, " "));
 }
 
 buildTeams();
