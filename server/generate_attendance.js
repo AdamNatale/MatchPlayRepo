@@ -50,6 +50,14 @@ async function generateAttendance() {
         {
             tournamentId: "201250",
             date: "2025-07-11"
+        },
+        {
+            tournamentId: "202335",
+            date: "2025-07-18"
+        },
+        {
+            tournamentId: "202474",
+            date: "2025-07-19"
         }
     ];
 
