@@ -52,6 +52,10 @@ async function generateAttendance() {
             date: "2025-07-11"
         },
         {
+            tournamentId: "201406",
+            date: "2025-07-12"
+        },
+        {
             tournamentId: "202335",
             date: "2025-07-18"
         },
